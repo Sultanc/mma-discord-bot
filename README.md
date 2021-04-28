@@ -7,7 +7,13 @@ Simple Discord bot that gets a screenshot of the next MMA fight card for UFC, Be
 Simple bot that does simple task.
 
 ------------------------------------
+**Installation**
 
+1- [Node.js](https://nodejs.org/en/) required for running the bot .
+
+2- copy your bot token in the config.js file you can change the bot command prefix in the same file aswell .
+
+------------------------------------
 **Usage:**
 
 **!ufc :** gets UFC next fight card
