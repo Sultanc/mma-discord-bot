@@ -13,6 +13,8 @@ Simple bot that does simple task.
 
 2- copy your bot token in the config.js file you can change the bot command prefix in the same file aswell .
 
+it takes the bot from 14s to 24s to pull the screenshot please don't spam it 
+
 ------------------------------------
 **Usage:**
 
@@ -28,7 +30,7 @@ this bot gets to ESPN website via puppeteer headless browser
 
 ------------------------------------
 
-**Dependencies :**
+**Dependencies:**
 
 [Discord.js](https://discord.js.org/#/)
 
