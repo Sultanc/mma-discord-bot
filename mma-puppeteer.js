@@ -28,7 +28,7 @@ client.on('message', message => {
 
         function getCard() {
         (async () => {
-            const browser = await puppeteer.launch({args: ['--no-sandbox']});
+            const browser = await puppeteer.launch();
             console.log('browser launched')
             const page = await browser.newPage();
             await page.goto(url);

@@ -11,7 +11,11 @@ Simple bot that does simple task.
 
 1- [Node.js](https://nodejs.org/en/) required for running the bot .
 
-2- copy your bot token in the config.js file you can change the bot command prefix in the same file aswell .
+2- npm i puppeteer
+
+3- npm install discord.js
+
+4- copy your bot token in the config.js file you can change the bot command prefix in the same file aswell .
 
 it takes the bot from 14s to 24s to pull the screenshot please don't spam it 
 
