@@ -1,4 +1,4 @@
-Simple Discord bot that gets a screenshot of the next MMA fight card for UFC, Bellator and PFL from [ESPN](https://www.espn.com/mma/fightcenter)
+Simple Discord bot that gets a screenshot of the next MMA fight card for UFC, Bellator, PFL and ONE FC from [ESPN](https://www.espn.com/mma/fightcenter) and [ONEFC](https://www.onefc.com/events/)
 
 
 ------------------------------------
