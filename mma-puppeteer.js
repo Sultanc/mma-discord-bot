@@ -8,9 +8,9 @@ client.once('ready', () => {
 });
 
 let url;
-//css path  
-const cookie = '#onetrust-accept-btn-handler'//cookie css
-const cardSelector = 'html body div#espnfitt div#DataWrapper div#fitt-analytics div.bp-mobileTablet.bp-tablet.bp-mobileMDPlus.bp-mobileLGPlus.bp-tabletPlus.no-touch div#fittPageContainer div div.PageLayout.page-container.cf.PageLayout--tablet.PageLayout--93'
+let cardSelector = '.PageLayout__Main' //ESPN card selector
+let fightInfo = 'a.btn:nth-child(2)' //ONE FC event info
+let oneCardSelector = 'section.site-section:nth-child(3) > div:nth-child(1)' // one card selector
 
 client.on('message', message => {
     if (message.content === `${prefix}ufc`) {
@@ -25,26 +25,62 @@ client.on('message', message => {
         url = 'https://www.espn.com/mma/fightcenter/_/league/pfl'
         getCard()
     }
+    else if (message.content === `${prefix}one`) {
+        url = 'https://www.onefc.com/events/'
+        getOneCard()
+    }
 
-        function getCard() {
+        function getOneCard(){ // ONE FC
+            (async () => {
+                const browser = await puppeteer.launch({headless:true});
+                console.log('browser launched...')
+                const page = await browser.newPage();
+                await page.setViewport({
+                    width: 730,
+                    height: 900,
+                    deviceScaleFactor: 1.4
+                  });
+                await page.goto(url);
+                await page.waitForTimeout(1000)
+                await page.click(fightInfo)
+                await page.waitForTimeout(1000)
+                await page.evaluate(() => {
+                    const navBar = document.querySelector('.navbar')
+                    navBar.remove() // removes navbar element in the top
+                  })
+                await page.waitForTimeout(1000)
+                const cardElement = await page.$(oneCardSelector) //select cards css path
+                await cardElement.screenshot({path: `./images/card.png`}); //card screenshot
+                const attachment = new Discord.MessageAttachment(`./images/card.png`);
+                message.channel.send(`${message.author}`, attachment);
+                console.log(`card sent...`)
+                await browser.close();
+                console.log('browser closed...')
+            })();
+        }
+
+        function getCard() { // UFC PFL BELLATOR
         (async () => {
-            const browser = await puppeteer.launch();
-            console.log('browser launched')
+            const browser = await puppeteer.launch({headless:true});
+            console.log('browser launched...')
             const page = await browser.newPage();
+            await page.setViewport({
+                width: 730,
+                height: 900,
+                deviceScaleFactor: 1.4
+              });
             await page.goto(url);
-            await Promise.all([
-                await page.waitForSelector(cookie),
-                await page.click(cookie) //accept cookie
-              ]);
-            console.log('cookie accepted') 
-            await page.waitForTimeout(3000) //3 sec wait
-            const cardElement = await page.$(cardSelector) //select css path
+            await page.evaluate(() => {
+                const ads = document.querySelector('.sponsored-content')
+                ads.remove() // removes ads element in the bottom
+              })
+            const cardElement = await page.$(cardSelector) //select cards css path
             await cardElement.screenshot({path: `./images/card.png`}); //card screenshot
             const attachment = new Discord.MessageAttachment(`./images/card.png`);
             message.channel.send(`${message.author}`, attachment);
-            console.log(`card sent`)
+            console.log(`card sent...`)
             await browser.close();
-            console.log('browser closed')
+            console.log('browser closed...')
         })();}
     }
 );

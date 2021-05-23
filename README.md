@@ -15,10 +15,10 @@ Simple bot that does simple task.
 
 3- ```npm install discord.js```
 
-4- copy your bot token in the config.js file you can change the bot command prefix in the same file aswell .
+4- copy your bot token in the config.json file you can change the bot command prefix in the same file aswell .
 
-- it takes the bot from 14s to 24s to pull the screenshot please don't spam it .
-
+- it takes the bot an average of 10s to 15s to pull the screenshot please don't spam it ...
+- if the bot throws an error restart the bot
 ------------------------------------
 **Usage:**
 
@@ -27,6 +27,8 @@ Simple bot that does simple task.
 **!bellator :** gets Bellator next fight card
 
 **!pfl :** gets PFL next fight card
+
+**!one :** gets ONE FC next fight card
 
 ------------------------------------
 
