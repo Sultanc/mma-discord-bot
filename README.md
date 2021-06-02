@@ -1,4 +1,4 @@
-Simple Discord bot that gets a screenshot of the next MMA fight card for UFC, Bellator, PFL and ONE FC from [ESPN](https://www.espn.com/mma/fightcenter) and [ONEFC](https://www.onefc.com/events/)
+Simple Discord bot that gets a screenshot of the next MMA fight card for UFC, Bellator, PFL ,ONE FC and Glory Kickboxing from [ESPN](https://www.espn.com/mma/fightcenter), [ONEFC](https://www.onefc.com/events/) and [Glory kickboxing](https://www.glorykickboxing.com/events)
 
 
 ------------------------------------
@@ -30,9 +30,13 @@ Simple bot that does simple task.
 
 **!one :** gets ONE FC next fight card
 
+**!glory :** gets Glory Kickboxing next fight card
+
 ------------------------------------
 
-this bot gets to ESPN website via puppeteer headless browser
+this bot gets to the links via puppeteer headless browser
+
+if you would like to see a new command for another organization create a new issue and specify the link where it shows the events fight card
 
 ------------------------------------
 
