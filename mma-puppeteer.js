@@ -10,7 +10,7 @@ client.once('ready', () => {
 
 let url;
 let espnCardSelector = '.PageLayout__Main' //ESPN card selector
-let oneEventInfo = '.btn-event-link' //ONE FC event info
+let oneEventInfo = '#event-banner > div.row > header > h1 > a' //ONE FC event info
 let oneCardSelector = '.container-main > article:nth-child(1)' // one card selector
 let gloryEventInfo = 'body > div.container.container-bg > div.row.card-module > div > div.row > div > a > strong'
 let gloryCardSelector = 'body > div.container.container-bg > div.row.fightdetails.mt-2.hidden-lg-up'
@@ -43,19 +43,13 @@ client.on('message', message => {
                 console.log('browser launched...')
                 const page = await browser.newPage();
                 await page.setViewport({
-                    width: 800,
+                    width: 720,
                     height: 900,
                     deviceScaleFactor: 1.4
                   });
                 await page.goto(url);
                 await page.click(gloryEventInfo)
                 await page.waitForTimeout(1000)
-
-                // removes navbar element in the top
-                await page.evaluate(() => {
-                    const navBar = document.querySelector('#main-nav')
-                    navBar.remove() 
-                });
 
                 // click show stats for each fight
                 await page.evaluate(() => {
