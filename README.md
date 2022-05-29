@@ -36,8 +36,6 @@ Simple bot that does simple task.
 
 this bot gets to the links via puppeteer headless browser
 
-if you would like to see a new command for another organization create a new issue and specify the link where it shows the events fight card
-
 ------------------------------------
 
 **Dependencies:**
